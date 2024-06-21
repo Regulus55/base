@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Card, Container, Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const TVList = () => {
   const [tvs, setTvs] = useState([]);
@@ -45,7 +46,9 @@ const TVList = () => {
                     ? "No overview :("
                     : tv.overview.slice(0, 80)}
                 </Card.Text>
-                <Button variant="primary">Go detail</Button>
+                <Link to={`/tv/${tv.id}`}>
+                  <Button variant="primary">Go detail</Button>
+                </Link>
               </Card.Body>
             </Card>
           </Col>
