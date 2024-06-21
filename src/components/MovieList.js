@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Card, Container, Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -41,7 +42,9 @@ const MovieList = () => {
               <Card.Body>
                 <Card.Title>{movie.title.slice(0, 10)}</Card.Title>
                 <Card.Text>{movie.overview.slice(0, 80)}</Card.Text>
-                <Button variant="primary">Go detail</Button>
+                <Link to={`/movie/${movie.id}`}>
+                  <Button variant="primary">Go detail</Button>
+                </Link>
               </Card.Body>
             </Card>
           </Col>
